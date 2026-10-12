@@ -1,0 +1,25 @@
+# Paper generation / manuscript files (not part of the reproducible code)
+paper/
+*.docx
+*.md.bak
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Logs and scratch
+*.log
+experiments/collect_log*.txt
+experiments/exp_log.txt
+experiments/backfill_log.txt
+
+# Redundant first-run data (superseded by data/)
+experiments/data/
+
+# Windows metadata
+*.Zone.Identifier
+
+# Design documents (Chinese-language working notes)
+*.md
+!README.md
