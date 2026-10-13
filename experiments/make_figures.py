@@ -104,11 +104,26 @@ def fig_e4():
     plt.close(fig)
 
 
+def fig_e5():
+    df = pd.read_csv(os.path.join(DATA, "e5_robustness_threshold.csv"))
+    fig, ax = plt.subplots(figsize=(6.5, 4))
+    ax.errorbar(df.C_reset, df.price, yerr=df["se"], fmt="o-", color="#2c3e50",
+                capsize=3)
+    ax.axvline(150.0, color="#e74c3c", linestyle="--", linewidth=1.0)
+    ax.set_xlabel("Strategic revision threshold $C_{reset}$")
+    ax.set_ylabel("Bond value")
+    ax.set_title("Bond value against the strategic threshold")
+    fig.tight_layout()
+    fig.savefig(os.path.join(FIG, "fig_e5_threshold.png"), dpi=200)
+    plt.close(fig)
+
+
 def main():
     fig_e1()
     fig_e2()
     fig_e3()
     fig_e4()
+    fig_e5()
     print("[figures] done")
 
 

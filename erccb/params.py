@@ -39,7 +39,7 @@ class ERCCBParams:
     C_safe: float = 200.0       # safety threshold of operating capital
     theta: float = 0.80         # mean-reversion speed of capital
     C_bar: float = 300.0        # long-run (target) capital level
-    alpha: float = 0.50         # capital feedback to stock returns
+    alpha: float = 0.50         # capital feedback to realized stock returns (dS/S)
     sigma_c: float = 0.25       # capital volatility
     rho: float = 0.60           # instantaneous corr(Ws, Wc)
 

@@ -1,4 +1,4 @@
 model,price,se,mean_resets,call_frac,default_frac
 no_reset,114.383,0.1731,0.0,0.6022,0.0
-exogenous_rho0.5,129.223,0.1004,1.936,0.9311,0.0
-endogenous,115.875,0.1708,0.1576,0.633,0.0
+exogenous_rho0.5,129.222,0.1004,1.9363,0.9311,0.0
+endogenous,115.883,0.1708,0.1593,0.6332,0.0

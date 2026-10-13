@@ -3,7 +3,7 @@
 The stock price S_t and the operating capital C_t evolve as
 
     dS_t = [r - q + mu(C_t)] S_t dt + sigma_s(C_t) S_t dW^s_t,
-    dC_t = [theta*(C_bar - C_t) + alpha*(r - q + mu(C_t))] dt
+    dC_t = theta*(C_bar - C_t) dt + alpha * dS_t/S_t
            + sigma_c C_t dW^c_t - dDischarge_t,
 
 with a distress drift and a liquidity-amplified volatility
@@ -116,8 +116,10 @@ def _simulate(
             if s_new < 0.0:
                 s_new = 0.0
 
-            # deterministic capital feedback from expected equity performance
-            feedback = alpha * (r - q + mu) * dt
+            # capital feedback from realized equity performance: alpha * dS/S.
+            # The stock step is computed above, so the realized return
+            # (s_new - s)/s feeds directly into the capital drift.
+            feedback = alpha * (s_new - s) / max(s, eps)
             c_new = (c + theta * (C_bar - c) * dt + feedback
                      + sigma_c * c * dw_c)
             # discharge: coupon at year-end (years 1..5)

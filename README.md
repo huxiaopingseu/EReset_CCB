@@ -12,7 +12,7 @@ coupled system:
 
 ```
 dS = [r - q + mu(C)] S dt + sigma_s(C) S dW^s
-dC = [theta*(C_bar - C) + alpha*(r - q + mu(C))] dt + sigma_c C dW^c - dDischarge
+dC = theta*(C_bar - C) dt + alpha * dS/S + sigma_c C dW^c - dDischarge
 ```
 
 with a distress drift `mu(C) = -eta * max(0, (C_safe - C)/C_safe)` and a
